@@ -24,25 +24,11 @@
 </h1>
 
 
-<table class="table">
-    <tr>
-        <th>@Html.DisplayNameFor(m => m.Dogs[0].Name)</th>
-        <th>@Html.DisplayNameFor(m => m.Dogs[0].Breed)</th>
-        <th>@Html.DisplayNameFor(m => m.Dogs[0].Color)</th>
-        <th>@Html.DisplayNameFor(m => m.Dogs[0].Age)</th>
-        <th>@Html.DisplayNameFor(m => m.Dogs[0].IsVaccinated)</th>
-    </tr>
-
+<div class="dog-container">
+    
     @foreach(Dog dog in Model.Dogs)
     { 
-        <tr>            
-            <td>Name @Html.DisplayFor(m => dog.Name)</td>
-            <td>Breed @Html.DisplayFor(m => dog.Breed)</td>
-            <td>@Html.DisplayFor(m => dog.Color)</td>
-            <td>@Html.DisplayFor(m => dog.Age)</td>
-            <td>@Html.DisplayFor(m => dog.IsVaccinated)</td>
-        </tr>
-    }
-    
-</table>
+        <partial name="_Dog" model="dog" />
+    }    
+</div>
 

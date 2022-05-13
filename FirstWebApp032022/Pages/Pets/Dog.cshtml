@@ -69,10 +69,7 @@
 
 <p>Model valid? @Model.IsModelValid</p>
 
-<p>Breed:@Model.Dog?.Breed</p>
-<p>Age: @Model.Dog?.Age</p>
-<p>Color: @Model.Dog?.Color</p>
-<p>Is Vaccinated: @Model.Dog?.IsVaccinated</p>
+<partial name="_Dog" model="Model.Dog" />
 
 
 <p>
