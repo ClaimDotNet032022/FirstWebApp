@@ -1,0 +1,85 @@
+﻿@page
+@model FirstWebApp032022.Pages.DogModel
+@{
+    string vaccinatedCheckboxStatus;
+    if (Model.Dog?.IsVaccinated == true)
+    {
+        vaccinatedCheckboxStatus = "checked";
+    }
+    else
+    {
+        vaccinatedCheckboxStatus = "";
+    }
+}
+
+<h1>Dog!</h1>
+
+<div>
+    Request type: @ViewData["RequestType"]
+</div>
+
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    <div>
+        @*<label for="dog-breed">Breed: </label>       
+        <input type="text" 
+            name="dog.breed" 
+            id="dog-breed" 
+            value="@Model.Dog?.Breed" />*@
+        <label asp-for="Dog.Breed"></label>    
+        <input asp-for="Dog.Breed" />
+        <span asp-validation-for="Dog.Breed"></span>
+    </div>
+    <div>
+        @*<label for="dog-age">Age: </label>
+        <input type="number" 
+            name="dog.age" 
+            id="dog-age" 
+            value="@Model.Dog?.Age" />*@
+        <label asp-for="Dog.Age"></label>    
+        <input asp-for="Dog.Age" />
+        <span asp-validation-for="Dog.Age"></span>
+    </div>
+    <div>
+        @*<label for="dog-color">Color: </label>
+        <input type="text" 
+            name="dog.color" 
+            id="dog-color" 
+            value="@Model.Dog?.Color" />*@
+        <label asp-for="Dog.Color"></label>  
+        <input asp-for="Dog.Color" />
+        <span asp-validation-for="Dog.Color"></span>
+    </div>
+    <div>
+        @*<label for="dog-is-vaccinated">Vaccinated: </label>
+        <input type="checkbox" 
+            name="dog.isVaccinated" 
+            id="dog-is-vaccinated" 
+            value="true" 
+            @vaccinatedCheckboxStatus
+            />*@
+        <label asp-for="Dog.IsVaccinated"></label>  
+        <input asp-for="Dog.IsVaccinated" />
+        <span asp-validation-for="Dog.IsVaccinated"></span>
+    </div>
+    <div>
+        <button type="submit">Submit Dog</button>
+    </div>
+</form>
+
+<p>Model valid? @Model.IsModelValid</p>
+
+<p>Breed:@Model.Dog?.Breed</p>
+<p>Age: @Model.Dog?.Age</p>
+<p>Color: @Model.Dog?.Color</p>
+<p>Is Vaccinated: @Model.Dog?.IsVaccinated</p>
+
+
+<p>
+    @DateTime.Now
+</p>
+<p>
+    @(int.Parse("42") + 50)
+</p>
+
+<p>This is the Dog page.</p>

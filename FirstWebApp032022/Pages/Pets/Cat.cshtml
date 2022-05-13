@@ -1,0 +1,23 @@
+﻿@page "{age}/{isVaccinated}"
+@model FirstWebApp032022.Pages.Pets.CatModel
+@{
+}
+
+<h1>Cat!</h1>
+
+<p>Age: @Model.Age</p>
+<p>Vaccinated: @Model.IsVaccinated</p>
+
+<p>
+    @*<a href="@Url.Page("/Pets/Dog", new { Breed = "Cat", Age = Model.Age, IsVaccinated = Model.IsVaccinated, Color = "red" })">
+    Is this a dog?    
+    </a>*@
+    <a 
+        asp-page="/Pets/Dog" 
+        asp-route-breed="Cat" 
+        asp-route-age="@Model.Age" 
+        asp-route-isvaccinated="@Model.IsVaccinated" 
+        asp-route-color="red">
+    Is this a dog?
+    </a>
+</p>

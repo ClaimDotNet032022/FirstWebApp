@@ -1,0 +1,48 @@
+﻿@page
+@using FirstWebApp032022.Data.Models
+@model FirstWebApp032022.Pages.Pets.DogListModel
+@{
+    string myString = @"<script>alert('Hi!')</script>";
+}
+
+
+@*@section FooterExtra {
+    <div>This is a page about multiple dogs!</div>
+}*@
+
+<h1>
+    @if(DateTime.Today.DayOfWeek == DayOfWeek.Wednesday)
+    {
+        @: Thor's Day!!
+    }
+    else
+    {
+        <text>
+            @DateTime.Today.DayOfWeek
+        </text>
+    }
+</h1>
+
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(m => m.Dogs[0].Name)</th>
+        <th>@Html.DisplayNameFor(m => m.Dogs[0].Breed)</th>
+        <th>@Html.DisplayNameFor(m => m.Dogs[0].Color)</th>
+        <th>@Html.DisplayNameFor(m => m.Dogs[0].Age)</th>
+        <th>@Html.DisplayNameFor(m => m.Dogs[0].IsVaccinated)</th>
+    </tr>
+
+    @foreach(Dog dog in Model.Dogs)
+    { 
+        <tr>            
+            <td>Name @Html.DisplayFor(m => dog.Name)</td>
+            <td>Breed @Html.DisplayFor(m => dog.Breed)</td>
+            <td>@Html.DisplayFor(m => dog.Color)</td>
+            <td>@Html.DisplayFor(m => dog.Age)</td>
+            <td>@Html.DisplayFor(m => dog.IsVaccinated)</td>
+        </tr>
+    }
+    
+</table>
+
